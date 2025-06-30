@@ -1,0 +1,12 @@
+---
+- name: Testar collections no EE
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Listar coleções instaladas
+      command: ansible-galaxy collection list
+      register: resultado
+
+    - name: Mostrar coleções instaladas
+      debug:
+        var: resultado.stdout_lines
